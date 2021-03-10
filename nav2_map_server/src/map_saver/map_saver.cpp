@@ -47,11 +47,11 @@ MapSaver::MapSaver()
   RCLCPP_INFO(get_logger(), "Creating");
 
   save_map_timeout_ = std::make_shared<rclcpp::Duration>(
-    rclcpp::Duration::from_seconds(declare_parameter("save_map_timeout", 2.0)));
+    rclcpp::Duration::from_seconds(declare_parameter<double>("save_map_timeout", 2.0)));
 
-  free_thresh_default_ = declare_parameter("free_thresh_default", 0.25),
-  occupied_thresh_default_ = declare_parameter("occupied_thresh_default", 0.65);
-  map_subscribe_transient_local_ = declare_parameter("map_subscribe_transient_local", true);
+  free_thresh_default_ = declare_parameter<double>("free_thresh_default", 0.25),
+  occupied_thresh_default_ = declare_parameter<double>("occupied_thresh_default", 0.65);
+  map_subscribe_transient_local_ = declare_parameter<bool>("map_subscribe_transient_local", true);
 }
 
 MapSaver::~MapSaver()

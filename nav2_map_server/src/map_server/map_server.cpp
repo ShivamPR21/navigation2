@@ -68,9 +68,9 @@ MapServer::MapServer()
   RCLCPP_INFO(get_logger(), "Creating");
 
   // Declare the node parameters
-  declare_parameter("yaml_filename");
-  declare_parameter("topic_name", "map");
-  declare_parameter("frame_id", "map");
+  declare_parameter<std::string>("yaml_filename");
+  declare_parameter<std::string>("topic_name", "map");
+  declare_parameter<std::string>("frame_id", "map");
 }
 
 MapServer::~MapServer()

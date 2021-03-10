@@ -38,9 +38,9 @@ LifecycleManager::LifecycleManager()
 
   // The list of names is parameterized, allowing this module to be used with a different set
   // of nodes
-  declare_parameter("node_names");
+  declare_parameter<std::string>("node_names");
   declare_parameter("autostart", rclcpp::ParameterValue(false));
-  declare_parameter("bond_timeout", 4.0);
+  declare_parameter<double>("bond_timeout", 4.0);
 
   node_names_ = get_parameter("node_names").as_string_array();
   get_parameter("autostart", autostart_);
