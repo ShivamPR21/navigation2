@@ -192,7 +192,6 @@ void loadMapFromFile(
   // will use sensor origin (added in PCD version 0.7)
   int pcd_version = pcl::PCDReader::PCD_V7;
 
-  std::cout << "[DEBUG] [map_io_3d]: feeding pcd filename to reader" << std::endl;
 
   if (reader.read(
       load_parameters.pcd_file_name, *cloud,
@@ -202,15 +201,10 @@ void loadMapFromFile(
     error_msg += load_parameters.pcd_file_name + "\n";
     PCL_ERROR(error_msg.c_str());
   }
-  std::cout << "[DEBUG] [map_io_3d]: pcd file is loaded" << std::endl;
-
-  std::cout << "[DEBUG] [map_io_3d]: converting pcd to message" << std::endl;
 
   //  update message data
   pclToMsg(map, cloud);
   
-  std::cout << "[DEBUG] [map_io_3d]: message conversion is done" << std::endl;
-
   // Copy load_parameters and update
   LoadParameters load_parameters_tmp = load_parameters;
 
@@ -297,7 +291,7 @@ void checkSaveParameters(SaveParameters & save_parameters)
 
   // Check for encoding
   if (save_parameters.as_binary) {
-    std::cout << "[WARNING] [map_io_3d]: Map will be saved in binary form to " <<
+    std::cout << "[INFO] [map_io_3d]: Map will be saved in binary form to " <<
       save_parameters.map_file_name << " file" << std::endl;
   }
 
